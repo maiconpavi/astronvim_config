@@ -1,3 +1,5 @@
+local utils = require "user.utils"
+
 return {
 
   {
@@ -11,17 +13,49 @@ return {
     },
   },
   {
-    "junegunn/fzf.vim",
-    lazy = false,
+    "simrat39/rust-tools.nvim",
+    ft = { "rust" },
+    config = function()
+      require("rust-tools").setup {
+        tools = {
+          autoSetHints = true,
+          runnables = {
+            use_telescope = true,
+          },
+          inlay_hints = {
+            show_parameter_hints = true,
+            parameter_hints_prefix = "<- ",
+            other_hints_prefix = "=> ",
+          },
+          hover_actions = {
+            border = {
+              { "╭", "FloatBorder" },
+              { "─", "FloatBorder" },
+              { "╮", "FloatBorder" },
+              { "│", "FloatBorder" },
+              { "╯", "FloatBorder" },
+              { "─", "FloatBorder" },
+              { "╰", "FloatBorder" },
+              { "│", "FloatBorder" },
+            },
+          },
+        },
+        server = {
+          settings = {
+            ["rust-analyzer"] = {
+              check = {
+                command = "clippy",
+              },
+            },
+          },
+        },
+      }
+    end,
   },
-  --u can also add new plugins here as well:
-  -- Add plugins, the lazy syntax
-  -- "andweeb/presence.nvim",
-  -- {
-  --   "ray-x/lsp_signature.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("lsp_signature").setup()
-  --   end,
-  -- },
+
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "BufRead",
+    config = function() require("lsp_signature").setup() end,
+  },
 }

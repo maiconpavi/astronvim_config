@@ -3,9 +3,9 @@ return {
   -- use mason-lspconfig to configure LSP installations
   {
     "williamboman/mason-lspconfig.nvim",
-    -- overrides `require("mason-lspconfig").setup(...)`
+    -- require()
     opts = {
-      ensure_installed = { "lua_ls" },
+      ensure_installed = { "lua_ls", "rust_analyzer" },
     },
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
@@ -13,14 +13,14 @@ return {
     "jay-babu/mason-null-ls.nvim",
     -- overrides `require("mason-null-ls").setup(...)`
     opts = {
-      ensure_installed = { "prettier", "stylua", "rustfmt", "black", "rust-analyzer" },
+      ensure_installed = { "prettier", "stylua", "rustfmt", "black" },
     },
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
     -- overrides `require("mason-nvim-dap").setup(...)`
     opts = {
-      ensure_installed = { "python" },
+      ensure_installed = { "python", "codelldb" },
     },
   },
 }
