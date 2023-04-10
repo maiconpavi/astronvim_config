@@ -1,6 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   opts = {
-    ensure_installed = { "lua", "rust", "sql", "python", "yaml", "json", "toml" },
+    ensure_installed = { "lua", "sql", "yaml", "json" },
   },
 }

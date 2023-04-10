@@ -11,13 +11,13 @@ return {
   {
     "jay-babu/mason-null-ls.nvim",
     opts = {
-      ensure_installed = { "prettier", "stylua", "rustfmt", "black" },
+      ensure_installed = { "prettier", "stylua", "rustfmt" },
     },
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
     opts = {
-      ensure_installed = { "python" },
+      ensure_installed = {},
     },
   },
 }
