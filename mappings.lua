@@ -9,6 +9,10 @@ return {
     -- second key is the lefthand side of the map
     -- mappings seen under group name "Buffer"
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
+    ["<leader>lg"] = { name = " Cargo" },
+    ["<leader>lgf"] = { "<cmd>! cargo fix --allow-dirty --allow-staged <cr>", desc = "Cargo Fix" },
+    ["<leader>lgt"] = { "<cmd>terminal cargo test<cr>", desc = "Cargo Test" },
+    ["<leader>lgT"] = { "<cmd>terminal cargo test --workspace<cr>", desc = "Cargo Test Workspace" },
     ["<leader>bD"] = {
       function()
         require("astronvim.utils.status").heirline.buffer_picker(
