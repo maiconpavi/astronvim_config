@@ -1,13 +1,23 @@
 local utils = require "user.utils"
 
 return {
-
+  { "akinsho/toggleterm.nvim", version = "*", opts = { shell = "zsh" } },
+  {
+    "linux-cultist/venv-selector.nvim",
+    dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim" },
+    opts = {
+      auto_refresh = true,
+      search_venv_managers = true,
+    },
+    event = "VeryLazy",
+    keys = { { "<leader>lv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
+  },
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
     event = "User AstroFile",
-    cmd = { "TodoQuickFix" },
+    cmd = { "TodoQuickFix", "TodoTelescope" },
     keys = {
       { "<leader>T", "<cmd>TodoTelescope<cr>", desc = "Open TODOs in Telescope" },
     },
@@ -72,15 +82,5 @@ return {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
     config = function() require("lsp_signature").setup() end,
-  },
-  {
-    "linux-cultist/venv-selector.nvim",
-    dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim" },
-    opts = {
-      auto_refresh = true,
-    },
-    event = "User AstroFile",
-    cmd = { "VenvSelect" },
-    keys = { { "<leader>lv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
   },
 }
