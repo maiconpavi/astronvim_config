@@ -13,6 +13,37 @@ return {
     keys = { { "<leader>lv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
   },
   {
+    "michaelb/sniprun",
+    keys = {},
+    opts = {},
+    build = "bash ./install.sh 1",
+    cmd = "SnipRun",
+  },
+  { "folke/which-key.nvim", opts = { plugins = { presets = { operators = false } } } },
+  {
+    "mvllow/modes.nvim",
+    version = "^0.2",
+    event = "VeryLazy",
+    opts = {
+      colors = {
+        copy = "#f5c359",
+        delete = "#c75c6a",
+        insert = "#78ccc5",
+        visual = "#00ff99",
+      },
+    },
+  },
+  {
+    "gbprod/cutlass.nvim",
+    lazy = false,
+    config = function()
+      require("cutlass").setup {
+        override_del = true,
+        cut_key = "x",
+      }
+    end,
+  },
+  {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},

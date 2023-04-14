@@ -11,7 +11,7 @@ return {
   {
     "jay-babu/mason-null-ls.nvim",
     opts = {
-      ensure_installed = { "prettier", "stylua", "rustfmt", "isort" },
+      ensure_installed = { "prettier", "stylua", "rustfmt", "isort", "black" },
     },
   },
   {
