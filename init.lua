@@ -82,6 +82,7 @@ return {
         return opts
       end,
     },
+    { "mfussenegger/nvim-dap", enabled = true },
   },
   -- Set colorscheme to use
   colorscheme = "kanagawa",
