@@ -82,9 +82,10 @@ return {
         return opts
       end,
     },
+    { "mfussenegger/nvim-dap", enabled = true },
   },
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  colorscheme = "kanagawa",
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
@@ -128,7 +129,6 @@ return {
     -- augroups/autocommands and custom filetypes also this just pure lua so
     -- anything that doesn't fit in the normal config locations above can go here
     polish = function()
-      -- vim.filetype.add {
       --   extension = {
       --     foo = "fooscript",
       --

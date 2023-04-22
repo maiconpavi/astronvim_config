@@ -4,14 +4,14 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = {
-      ensure_installed = { "lua_ls", "pyright", "ruff_lsp" },
+      ensure_installed = { "lua_ls", "pyright", "ruff_lsp", "rust_analyzer" },
     },
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
   {
     "jay-babu/mason-null-ls.nvim",
     opts = {
-      ensure_installed = { "prettier", "stylua", "rustfmt", "isort" },
+      ensure_installed = { "prettier", "stylua", "rustfmt", "isort", "black" },
     },
   },
   {
