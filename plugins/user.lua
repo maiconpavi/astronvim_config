@@ -1,7 +1,7 @@
 local utils = require "user.utils"
 
 return {
-  { "akinsho/toggleterm.nvim", version = "*", opts = { shell = "fish" } },
+  { "akinsho/toggleterm.nvim", version = "*", opts = { shell = "zsh" } },
   {
     "linux-cultist/venv-selector.nvim",
     dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim" },
