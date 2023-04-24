@@ -13,6 +13,24 @@ return {
     keys = { { "<leader>lv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
   },
   {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "debugloop/telescope-undo.nvim",
+    },
+    config = function()
+      require("telescope").setup {
+        extensions = {
+          undo = {
+            -- telescope-undo.nvim config, see below
+          },
+        },
+      }
+      require("telescope").load_extension "undo"
+      -- optional: vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
+    end,
+  },
+  {
     "michaelb/sniprun",
     keys = {},
     opts = {},
@@ -74,13 +92,13 @@ return {
             procMacro = {
               enable = true,
             },
-            cargo = {
-              loadOutDirsFromCheck = true,
-            },
-            assist = {
-              importGranularity = "module",
-              importPrefix = "by_self",
-            },
+            -- cargo = {
+            --   loadOutDirsFromCheck = true,
+            -- },
+            -- assist = {
+            --   importGranularity = "module",
+            --   importPrefix = "by_self",
+            -- },
           },
         },
       })
