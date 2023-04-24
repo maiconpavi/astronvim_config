@@ -9,6 +9,8 @@ return {
     -- second key is the lefthand side of the map
     -- mappings seen under group name "Buffer"
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
+    -- optional: vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
+    ["<leader>u"] = { "<cmd>Telescope undo<cr>", desc = "Undo" },
     -- Cargo commands
     ["<leader>lg"] = { name = " Cargo" },
     ["<leader>lgf"] = { "<cmd>! cargo fix --allow-dirty --allow-staged <cr>", desc = "Cargo Fix" },
