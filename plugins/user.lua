@@ -1,7 +1,7 @@
 local utils = require "user.utils"
 
 return {
-  { "akinsho/toggleterm.nvim", version = "*", opts = { shell = "zsh" } },
+  { "akinsho/toggleterm.nvim", version = "*",                                           opts = { shell = "zsh" } },
   {
     "linux-cultist/venv-selector.nvim",
     dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim" },
@@ -37,7 +37,7 @@ return {
     build = "bash ./install.sh 1",
     cmd = "SnipRun",
   },
-  { "folke/which-key.nvim", opts = { plugins = { presets = { operators = false } } } },
+  { "folke/which-key.nvim",    opts = { plugins = { presets = { operators = false } } } },
   {
     "mvllow/modes.nvim",
     version = "^0.2",
@@ -65,6 +65,28 @@ return {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
+    config = function()
+      require("todo-comments").setup {
+        signs = false,
+        keywords = {
+          FIX = {
+            icon = " ",
+            color = "error",
+            alt = { "FIXME", "BUG" },
+          },
+          TODO = { icon = " ", color = "info", alt = { "todo" } },
+        },
+        merge_keywords = false,
+        highlight = {
+          comments_only = false,
+          pattern = [[.*<(KEYWORDS)\s*([:\!])]],
+        },
+        search = {
+          command = "rg",
+          pattern = [[\b(KEYWORDS)([:!])]],
+        },
+      }
+    end,
     event = "User AstroFile",
     cmd = { "TodoQuickFix", "TodoTelescope" },
     keys = {
