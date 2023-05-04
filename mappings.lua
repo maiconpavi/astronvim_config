@@ -9,11 +9,17 @@ return {
     -- second key is the lefthand side of the map
     -- mappings seen under group name "Buffer"
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
+    ["ga."] = { "<cmd>TextCaseOpenTelescope<CR>", desc = "TextCase Telescope" },
+    ["gaS"] = { function() require("textcase").lsp_rename "to_snake_case" end, desc = "LSP rename to_snake_case" },
+    ["gas"] = { function() require("textcase").current_word "to_snake_case" end, desc = "Convert to_snake_case" },
     -- optional: vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
     ["<leader>u"] = { "<cmd>Telescope undo<cr>", desc = "Undo" },
     -- Cargo commands
     ["<leader>lg"] = { name = " Cargo" },
-    ["<leader>lgf"] = { "<cmd>! cargo fix --allow-dirty --allow-staged <cr>", desc = "Cargo Fix" },
+    ["<leader>lgf"] = {
+      "<cmd>! cargo fix --allow-dirty --allow-staged --allow-no-vcs --workspace<cr>",
+      desc = "Cargo Fix",
+    },
     ["<leader>lgt"] = { "<cmd>terminal cargo test<cr>", desc = "Cargo Test" },
     ["<leader>lgT"] = { "<cmd>terminal cargo test --workspace<cr>", desc = "Cargo Test Workspace" },
     -- Python commands
@@ -37,5 +43,8 @@ return {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
   },
-  v = {},
+  v = {
+    ["ga."] = { "<cmd>TextCaseOpenTelescope<CR>", desc = "TextCase Telescope" },
+    ["gas"] = { function() require("textcase").current_word "to_snake_case" end, desc = "Convert to_snake_case" },
+  },
 }

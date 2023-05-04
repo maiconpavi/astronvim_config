@@ -62,6 +62,18 @@ return {
     end,
   },
   {
+    "johmsalas/text-case.nvim",
+    event = "BufRead",
+    config = function()
+      require("textcase").setup {}
+      require("telescope").load_extension "textcase"
+    end,
+  },
+  {
+    -- todo! asdaa
+    -- todo!() asdas
+    -- FIXME: asdda
+    -- FIXME! asda
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
