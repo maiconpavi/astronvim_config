@@ -1,7 +1,11 @@
 local utils = require "user.utils"
 
 return {
-  { "akinsho/toggleterm.nvim", version = "*", opts = { shell = "zsh" } },
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    opts = { shell = "zsh" },
+  },
   {
     "linux-cultist/venv-selector.nvim",
     dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim" },
@@ -14,13 +18,7 @@ return {
   {
     "folke/trouble.nvim",
     requires = "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("trouble").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
-    end,
+    config = function() require("trouble").setup {} end,
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -37,6 +35,16 @@ return {
         },
       }
       require("telescope").load_extension "undo"
+    end,
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
     end,
   },
   {

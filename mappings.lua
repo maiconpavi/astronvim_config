@@ -41,6 +41,11 @@ return {
       desc = "Pick to close",
     },
     ["<leader>bS"] = { ":wa!<cr>", desc = "Save All Files" },
+    -- Aerial
+    ["[S"] = {
+      function() require("aerial").prev_up(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Previous [count] Symbol in Tree",
+    },
   },
   t = {
     -- setting a mapping to false will disable it
