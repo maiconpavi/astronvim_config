@@ -5,8 +5,7 @@ ln -s $(which fdfind) ~/.local/bin/fd || true
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh  -s -- -y
 source "$HOME/.cargo/env"
-cargo install ripgrep
-cargo install bottom --locked
+cargo install ripgrep bottom
 
 
 # lazygit
@@ -21,4 +20,5 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
 
 # python
-pip3 install -U isort black virtualenv pyright ruff debugpy
+pip3 install -U isort black virtualenv pyright ruff debugpy cfn-lint yamllint
+

@@ -6,8 +6,6 @@ return {
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.toml" },
 
-  { import = "astrocommunity.completion.copilot-lua-cmp" },
-
   -- color
   { import = "astrocommunity.color.twilight-nvim" },
 
