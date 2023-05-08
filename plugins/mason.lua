@@ -15,7 +15,7 @@ return {
         taplo = function()
         end,
       },
-      ensure_installed = { "prettier", "stylua", "rustfmt", "isort", "black" },
+      ensure_installed = { "prettier", "stylua", "rustfmt", "isort", "black", "cfn-lint", "yamllint" },
     },
   },
   {

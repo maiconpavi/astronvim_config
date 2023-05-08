@@ -1,7 +1,7 @@
 local utils = require "user.utils"
 
 return {
-  { "akinsho/toggleterm.nvim", version = "*",                                           opts = { shell = "zsh" } },
+  { "akinsho/toggleterm.nvim", version = "*", opts = { shell = "zsh" } },
   {
     "linux-cultist/venv-selector.nvim",
     dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim" },
@@ -9,8 +9,18 @@ return {
       auto_refresh = true,
       search_venv_managers = true,
     },
-    event = "VeryLazy",
-    keys = { { "<leader>lv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
+    lazy = false,
+  },
+  {
+    "folke/trouble.nvim",
+    requires = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end,
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -27,7 +37,82 @@ return {
         },
       }
       require("telescope").load_extension "undo"
-      -- optional: vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
+    end,
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "User AstroFile",
+    opts = {
+      suggestion = { auto_trigger = true, debounce = 150 },
+      filetypes = {
+        yaml = true,
+        markdown = true,
+        help = false,
+        gitcommit = false,
+        gitrebase = false,
+        hgcommit = false,
+        svn = false,
+        cvs = false,
+        ["."] = false,
+      },
+    },
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = { "zbirenbaum/copilot.lua" },
+    opts = function(_, opts)
+      local cmp, copilot = require "cmp", require "copilot.suggestion"
+      local snip_status_ok, luasnip = pcall(require, "luasnip")
+      if not snip_status_ok then return end
+      local function has_words_before()
+        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
+      end
+      if not opts.mapping then opts.mapping = {} end
+      opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
+        if copilot.is_visible() then
+          copilot.accept()
+        elseif cmp.visible() then
+          cmp.select_next_item()
+        elseif luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
+        elseif has_words_before() then
+          cmp.complete()
+        else
+          fallback()
+        end
+      end, { "i", "s" })
+
+      opts.mapping["<C-x>"] = cmp.mapping(function()
+        if copilot.is_visible() then copilot.next() end
+      end)
+
+      opts.mapping["<C-z>"] = cmp.mapping(function()
+        if copilot.is_visible() then copilot.prev() end
+      end)
+
+      opts.mapping["<C-right>"] = cmp.mapping(function()
+        if copilot.is_visible() then copilot.accept_word() end
+      end)
+
+      opts.mapping["<C-l>"] = cmp.mapping(function()
+        if copilot.is_visible() then copilot.accept_word() end
+      end)
+
+      opts.mapping["<C-down>"] = cmp.mapping(function()
+        if copilot.is_visible() then copilot.accept_line() end
+      end)
+
+      opts.mapping["<C-j>"] = cmp.mapping(function()
+        if copilot.is_visible() then copilot.accept_line() end
+      end)
+
+      opts.mapping["<C-c>"] = cmp.mapping(function()
+        if copilot.is_visible() then copilot.dismiss() end
+      end)
+
+      return opts
     end,
   },
   {
@@ -37,7 +122,7 @@ return {
     build = "bash ./install.sh 1",
     cmd = "SnipRun",
   },
-  { "folke/which-key.nvim",    opts = { plugins = { presets = { operators = false } } } },
+  { "folke/which-key.nvim", opts = { plugins = { presets = { operators = false } } } },
   {
     "mvllow/modes.nvim",
     version = "^0.2",
@@ -101,9 +186,6 @@ return {
     end,
     event = "User AstroFile",
     cmd = { "TodoQuickFix", "TodoTelescope" },
-    keys = {
-      { "<leader>T", "<cmd>TodoTelescope<cr>", desc = "Open TODOs in Telescope" },
-    },
   },
   {
     "simrat39/rust-tools.nvim",
