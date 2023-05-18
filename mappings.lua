@@ -5,6 +5,7 @@
 -- automatically pick-up stored data by this setting.)
 return {
   n = {
+    ["<leader>s"] = { name = " Surround" },
     ["<leader>lv"] = { "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" },
     ["<leader>fT"] = { "<cmd>Find TODO's<cr>", desc = "Open TODOs in Telescope" },
     -- Text Case
@@ -40,12 +41,14 @@ return {
       end,
       desc = "Pick to close",
     },
-    ["<leader>bS"] = { ":wa!<cr>", desc = "Save All Files" },
+    ["<leader>bS"] = { ":wa!<cr>", desc = "Save All Buffers" },
     -- Aerial
     ["[S"] = {
       function() require("aerial").prev_up(vim.v.count > 0 and vim.v.count or 1) end,
       desc = "Previous [count] Symbol in Tree",
     },
+    -- find in files
+    ["<leader>fS"] = { function() require("spectre").open() end, desc = "Open Spectre" },
   },
   t = {
     -- setting a mapping to false will disable it

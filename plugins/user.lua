@@ -16,6 +16,12 @@ return {
     lazy = false,
   },
   {
+    "nvim-pack/nvim-spectre",
+    lazy = false,
+    version = "*",
+    requires = "nvim-lua/plenary.nvim",
+  },
+  {
     "folke/trouble.nvim",
     requires = "nvim-tree/nvim-web-devicons",
     config = function() require("trouble").setup {} end,
@@ -42,8 +48,20 @@ return {
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     config = function()
+      local prefix = "<leader>s"
       require("nvim-surround").setup {
-        -- Configuration here, or leave empty to use defaults
+        keymaps = {
+          insert = "<C-g>s",
+          insert_line = "<C-g>S",
+          normal = prefix .. "s",
+          normal_cur = prefix .. "c",
+          normal_line = prefix .. "S",
+          normal_cur_line = prefix .. "C",
+          visual = "S",
+          visual_line = "gS",
+          delete = prefix .. "d",
+          change = prefix .. "c",
+        },
       }
     end,
   },
@@ -123,6 +141,21 @@ return {
       return opts
     end,
   },
+  { "NvChad/nvim-colorizer.lua", enabled = false },
+  {
+    "uga-rosa/ccc.nvim",
+    version = "*",
+    event = "User AstroFile",
+    keys = { { "<leader>uC", "<cmd>CccPick<cr>", desc = "Toggle colorizer" } },
+    opts = { highlighter = { auto_enable = true } },
+    config = function(_, opts)
+      local ccc = require "ccc"
+      local mapping = ccc.mapping
+      opts.highlighter = { auto_enable = true, lsp = true }
+
+      ccc.setup(opts)
+    end,
+  },
   {
     "michaelb/sniprun",
     keys = {},
@@ -130,7 +163,7 @@ return {
     build = "bash ./install.sh 1",
     cmd = "SnipRun",
   },
-  { "folke/which-key.nvim", opts = { plugins = { presets = { operators = false } } } },
+  { "folke/which-key.nvim",      opts = { plugins = { presets = { operators = false } } } },
   {
     "mvllow/modes.nvim",
     version = "^0.2",
@@ -143,6 +176,12 @@ return {
         visual = "#00ff99",
       },
     },
+  },
+  {
+    "lukas-reineke/headlines.nvim",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    ft = { "markdown", "norg", "org", "rmd" },
+    opts = {},
   },
   {
     "gbprod/cutlass.nvim",

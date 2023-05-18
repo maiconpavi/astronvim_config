@@ -20,5 +20,5 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
 
 # python
-pip3 install -U isort black virtualenv pyright ruff debugpy cfn-lint yamllint
+pip3 install -U isort black virtualenv pyright ruff ruff_lsp debugpy cfn-lint yamllint 
 
