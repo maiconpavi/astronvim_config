@@ -22,6 +22,15 @@ return {
     requires = "nvim-lua/plenary.nvim",
   },
   {
+    "sudormrfbin/cheatsheet.nvim",
+    lazy = false,
+    requires = {
+      { "nvim-telescope/telescope.nvim" },
+      { "nvim-lua/popup.nvim" },
+      { "nvim-lua/plenary.nvim" },
+    },
+  },
+  {
     "folke/trouble.nvim",
     requires = "nvim-tree/nvim-web-devicons",
     config = function() require("trouble").setup {} end,
