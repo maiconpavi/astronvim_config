@@ -11,7 +11,10 @@ return {
     dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim" },
     opts = {
       auto_refresh = true,
-      search_venv_managers = true,
+      search_venv_managers = false,
+      search = true,
+      search_workspace = true,
+      parents = 0,
     },
     lazy = false,
   },
