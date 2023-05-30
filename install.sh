@@ -13,6 +13,7 @@ LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/re
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
+rm -f lazygit.tar.gz lazygit
 
 
 # fzf
@@ -20,5 +21,5 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
 
 # python
-pip3 install -U isort black virtualenv pyright ruff debugpy cfn-lint yamllint
+pip3 install -U isort black virtualenv pyright ruff ruff_lsp debugpy cfn-lint yamllint 
 

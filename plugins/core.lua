@@ -1,3 +1,5 @@
+local get_icon = require("astronvim.utils").get_icon
+
 return {
   -- customize alpha options
   {
@@ -5,11 +7,11 @@ return {
     opts = function(_, opts)
       -- customize the dashboard header
       opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
+        " ███    ███  █████  ██  ██████  ██████",
+        " ████  ████ ██   ██ ██ ██      ██    ██",
+        " ██ ████ ██ ███████ ██ ██      ██    ██",
+        " ██  ██  ██ ██   ██ ██ ██      ██    ██",
+        " ██      ██ ██   ██ ██  ██████  ██████",
         " ",
         "    ███    ██ ██    ██ ██ ███    ███",
         "    ████   ██ ██    ██ ██ ████  ████",
@@ -17,6 +19,20 @@ return {
         "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
         "    ██   ████   ████   ██ ██      ██",
       }
+      return opts
+    end,
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = function(_, opts)
+      if opts.filesystem == nil then opts.filesystem = {} end
+      if opts.filesystem.filtered_items == nil then opts.filesystem.filtered_items = {} end
+      -- opts.filesystem.filtered_items.hide_dotfiles = false
+      opts.filesystem.filtered_items.always_show = { -- remains visible even if other settings would normally hide it
+        ".gitignored",
+        ".gitignore",
+      }
+
       return opts
     end,
   },

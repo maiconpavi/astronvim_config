@@ -82,7 +82,6 @@ return {
         return opts
       end,
     },
-    { "mfussenegger/nvim-dap", enabled = true },
   },
   -- Set colorscheme to use
   colorscheme = "kanagawa",
@@ -91,6 +90,7 @@ return {
     virtual_text = true,
     underline = true,
   },
+
   lsp = {
     -- customize lsp formatting options
     formatting = {
@@ -129,7 +129,6 @@ return {
     -- augroups/autocommands and custom filetypes also this just pure lua so
     -- anything that doesn't fit in the normal config locations above can go here
     polish = function()
-      -- set shell=/usr/bin/zsh
       --   extension = {
       --     foo = "fooscript",
       --

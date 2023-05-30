@@ -1,13 +1,14 @@
--- set vim options here (vim.<first_key>.<second_key> = value)
 return {
   opt = {
     -- set to true or false etc.
-    relativenumber = true,  -- sets vim.opt.relativenumber
-    number = true,          -- sets vim.opt.number
-    spell = false,          -- sets vim.opt.spell
-    signcolumn = "auto",    -- sets vim.opt.signcolumn to auto
-    wrap = false,           -- sets vim.opt.wrap
-    shell = "/usr/bin/zsh", -- sets vim.g.shell to "/usr/bin/zsh
+    relativenumber = true,                                                 -- sets vim.opt.relativenumber
+    number = true,                                                         -- sets vim.opt.number
+    spell = false,                                                         -- sets vim.opt.spell
+    signcolumn = "auto",                                                   -- sets vim.opt.signcolumn to auto
+    wrap = false,                                                          -- sets vim.opt.wrap
+    shell = "/usr/bin/zsh",                                                -- sets vim.g.shell to "/usr/bin/zsh
+    title = true,                                                          -- sets vim.opt.title
+    titlestring = "%{v:progname} %{substitute(getcwd(), '^.*/', '', '')}", -- sets vim.opt.titlestring
   },
   g = {
     mapleader = " ",                 -- sets vim.g.mapleader
@@ -27,4 +28,5 @@ return {
 --   local_vim.opt.shortmess = vim.opt.shortmess + { I = true } -- add to option list
 --
 --   return local_vim
+-- end
 -- end
