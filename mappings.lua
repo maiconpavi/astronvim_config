@@ -5,6 +5,12 @@
 -- automatically pick-up stored data by this setting.)
 return {
   n = {
+    --- Tab
+    ["<leader>Tn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
+    ["<leader>Tc"] = { "<cmd>tabclose<cr>", desc = "Close tab" },
+    -- a table with the `name` key will register with which-key if it's available
+    -- this an easy way to add menu titles in which-key
+    ["<leader>T"] = { name = "Tab" },
     ["<leader>s"] = { name = " Surround" },
     ["<leader>lv"] = { "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" },
     ["<leader>fT"] = { "<cmd>Find TODO's<cr>", desc = "Open TODOs in Telescope" },
@@ -18,6 +24,7 @@ return {
     ["<leader>xd"] = { "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Trouble Document Toggle" },
     ["<leader>xq"] = { "<cmd>TroubleToggle quickfix<cr>", desc = "Trouble QuickFix Toggle" },
     ["<leader>U"] = { "<cmd>Telescope undo<cr>", desc = "Undo Tree" },
+    ["<leader>lT"] = { "<cmd>TestNearest<cr>", desc = "Test Nearest" },
     -- Cargo commands
     ["<leader>lg"] = { name = " Cargo" },
     ["<leader>lgf"] = {

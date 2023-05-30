@@ -82,7 +82,6 @@ return {
         return opts
       end,
     },
-    { "mfussenegger/nvim-dap", enabled = true },
   },
   -- Set colorscheme to use
   colorscheme = "kanagawa",
@@ -91,6 +90,7 @@ return {
     virtual_text = true,
     underline = true,
   },
+
   lsp = {
     -- customize lsp formatting options
     formatting = {

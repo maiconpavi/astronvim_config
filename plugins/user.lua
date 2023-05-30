@@ -7,6 +7,69 @@ return {
     opts = { shell = "zsh" },
   },
   {
+    "klen/nvim-test",
+    config = function() require("nvim-test").setup() end,
+    lazy = false,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    config = function(plugin, opts)
+      -- run default AstroNvim nvim-dap-ui configuration function
+      require "plugins.configs.nvim-dap-ui" (plugin, opts)
+
+      -- disable dap events that are created
+      local dap = require "dap"
+      local venv_selector = require "venv-selector"
+      dap.configurations.python = {
+        {
+          type = "python",
+          request = "launch",
+          name = "Launch file",
+          program = "${file}",
+          pythonPath = venv_selector.get_active_path,
+        },
+      }
+      dap.adapters.python = {
+        type = "executable",
+        command = "/usr/bin/python3",
+        args = {
+          "-m",
+          "debugpy.adapter",
+        },
+      }
+      -- disable auto close
+      dap.listeners.after.event_initialized["dapui_config"] = nil
+      dap.listeners.before.event_terminated["dapui_config"] = nil
+      dap.listeners.before.event_exited["dapui_config"] = nil
+      -- enable auto completion for dap
+    end,
+  },
+  {
+    "olexsmir/gopher.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
+    ft = "go",
+    opts = {},
+  },
+  {
+    "cameron-wags/rainbow_csv.nvim",
+    config = true,
+    ft = {
+      "csv",
+      "tsv",
+      "csv_semicolon",
+      "csv_whitespace",
+      "csv_pipe",
+      "rfc_csv",
+      "rfc_semicolon",
+    },
+    cmd = {
+      "RainbowDelim",
+      "RainbowDelimSimple",
+      "RainbowDelimQuoted",
+      "RainbowMultiDelim",
+    },
+  },
+  {
     "linux-cultist/venv-selector.nvim",
     dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim" },
     opts = {
@@ -86,6 +149,9 @@ return {
       filetypes = {
         yaml = true,
         markdown = true,
+        ["dap-repl"] = true,
+        dapui_watches = true,
+        dapui_hover = true,
         help = false,
         gitcommit = false,
         gitrebase = false,
@@ -107,6 +173,17 @@ return {
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
       end
+      cmp.setup {
+        enabled = function()
+          return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
+        end,
+      }
+
+      cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+        sources = {
+          { name = "dap" },
+        },
+      })
       if not opts.mapping then opts.mapping = {} end
       opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
         if copilot.is_visible() then

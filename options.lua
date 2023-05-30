@@ -1,4 +1,3 @@
--- set vim options here (vim.<first_key>.<second_key> = value)
 return {
   opt = {
     -- set to true or false etc.
@@ -9,7 +8,7 @@ return {
     wrap = false,                                                          -- sets vim.opt.wrap
     shell = "/usr/bin/zsh",                                                -- sets vim.g.shell to "/usr/bin/zsh
     title = true,                                                          -- sets vim.opt.title
-    titlestring = "%{v:progname} %{substitute(getcwd(), $HOME, '~', '')}", -- sets vim.opt.titlestring
+    titlestring = "%{v:progname} %{substitute(getcwd(), '^.*/', '', '')}", -- sets vim.opt.titlestring
   },
   g = {
     mapleader = " ",                 -- sets vim.g.mapleader
