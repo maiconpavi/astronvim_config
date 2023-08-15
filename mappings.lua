@@ -5,6 +5,11 @@
 -- automatically pick-up stored data by this setting.)
 return {
   n = {
+    --- Tmux navigation
+    ["C-h"] = { "<cmd>TmuxNavigateLeft<cr>", desc = "Tmux Navigate Left" },
+    ["C-j"] = { "<cmd>TmuxNavigateDown<cr>", desc = "Tmux Navigate Down" },
+    ["C-k"] = { "<cmd>TmuxNavigateUp<cr>", desc = "Tmux Navigate Up" },
+    ["C-l"] = { "<cmd>TmuxNavigateRight<cr>", desc = "Tmux Navigate Right" },
     --- Tab
     ["<leader>Tn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>Tc"] = { "<cmd>tabclose<cr>", desc = "Close tab" },

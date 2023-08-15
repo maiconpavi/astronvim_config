@@ -1,6 +1,7 @@
 local utils = require "user.utils"
 
 return {
+  { "christoomey/vim-tmux-navigator", lazy = false },
   {
     "akinsho/toggleterm.nvim",
     version = "*",
@@ -109,6 +110,11 @@ return {
     },
     config = function()
       require("telescope").setup {
+        defaults = {
+          file_ignore_patterns = {
+            "node_modules",
+          },
+        },
         extensions = {
           undo = {
             -- telescope-undo.nvim config, see below
@@ -230,7 +236,7 @@ return {
       return opts
     end,
   },
-  { "NvChad/nvim-colorizer.lua", enabled = false },
+  { "NvChad/nvim-colorizer.lua",      enabled = false },
   {
     "uga-rosa/ccc.nvim",
     version = "*",
@@ -252,7 +258,7 @@ return {
     build = "bash ./install.sh 1",
     cmd = "SnipRun",
   },
-  { "folke/which-key.nvim",      opts = { plugins = { presets = { operators = false } } } },
+  { "folke/which-key.nvim", opts = { plugins = { presets = { operators = false } } } },
   {
     "mvllow/modes.nvim",
     version = "^0.2",
