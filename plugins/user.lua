@@ -245,7 +245,6 @@ return {
     opts = { highlighter = { auto_enable = true } },
     config = function(_, opts)
       local ccc = require "ccc"
-      local mapping = ccc.mapping
       opts.highlighter = { auto_enable = true, lsp = true }
 
       ccc.setup(opts)

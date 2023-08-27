@@ -1,25 +1,44 @@
-# Venv and fd
-sudo apt-get install -y python3.10-venv fd-find
-ln -s $(which fdfind) ~/.local/bin/fd || true
 
-# rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh  -s -- -y
-source "$HOME/.cargo/env"
-cargo install ripgrep bottom
+shell() {
+  bash <(curl https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh)
+  sudo apt install zsh
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  curl -sS https://starship.rs/install.sh | sh
+}
+
+nvim() {
+  sudo apt-get install tmux -y
+  cargo install alacritty
+  wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+  sudo chmod u+x nvim.appimage
+  sudo mv nvim.appimage /usr/local/bin/nvim
+  git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+}
+
+nvimdep() {
+  # Venv, fd, tmux
+  sudo apt-get install -y python3.10-venv fd-find 
+  ln -s $(which fdfind) ~/.local/bin/fd || true
+
+  # rust
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh  -s -- -y
+  source "$HOME/.cargo/env"
+  cargo install ripgrep bottom
 
 
-# lazygit
-LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-tar xf lazygit.tar.gz lazygit
-sudo install lazygit /usr/local/bin
-rm -f lazygit.tar.gz lazygit
+  # lazygit
+  LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+  curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+  tar xf lazygit.tar.gz lazygit
+  sudo install lazygit /usr/local/bin
+  rm -f lazygit.tar.gz lazygit
 
 
-# fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf 
-~/.fzf/install --all
+  # fzf
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf 
+  ~/.fzf/install --all
 
-# python
-pip3 install -U isort black virtualenv pyright ruff ruff_lsp debugpy cfn-lint yamllint 
+  # python
+  pip3 install -U isort black virtualenv pyright ruff ruff_lsp debugpy cfn-lint yamllint 
+}
 
