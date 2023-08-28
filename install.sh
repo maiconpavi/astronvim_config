@@ -1,28 +1,33 @@
 
-shell() {
+ishell() {
+  sudo apt install build-essential libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev -y
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh  -s -- -y
+  source "$HOME/.cargo/env"
+  cargo install --locked --features clipboard broot
   bash <(curl https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh)
+  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
   sudo apt install zsh
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   curl -sS https://starship.rs/install.sh | sh
 }
 
-nvim() {
+invim() {
   sudo apt-get install tmux -y
-  cargo install alacritty
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
   sudo chmod u+x nvim.appimage
   sudo mv nvim.appimage /usr/local/bin/nvim
   git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 }
 
-nvimdep() {
+invimdep() {
+  sudo apt-get install python3 -y
   # Venv, fd, tmux
   sudo apt-get install -y python3.10-venv fd-find 
   ln -s $(which fdfind) ~/.local/bin/fd || true
 
   # rust
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh  -s -- -y
-  source "$HOME/.cargo/env"
+  
   cargo install ripgrep bottom
 
 
