@@ -13,6 +13,7 @@ return {
         "rust_analyzer",
         "gopls",
         "prismals",
+        "graphql",
       },
     },
   },

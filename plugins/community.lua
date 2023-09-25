@@ -3,7 +3,8 @@ return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.rust" },
   -- { import = "astrocommunity.pack.python" },
-  { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.pack.typescript-all-in-one" },
+  { import = "astrocommunity.pack.full-dadbod" },
   { import = "astrocommunity.pack.toml" },
 
   -- color

@@ -37,6 +37,7 @@ return {
       opts.filesystem.filtered_items.always_show = { -- remains visible even if other settings would normally hide it
         ".gitignored",
         ".gitignore",
+        ".env",
       }
 
       return opts

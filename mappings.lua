@@ -5,11 +5,15 @@
 -- automatically pick-up stored data by this setting.)
 return {
   n = {
+    -- UI
+    ["<leader>uD"] = { "<cmd>DBUIToggle<cr>", desc = "Toggle DB UI" },
+
     --- Tmux navigation
     ["C-h"] = { "<cmd>TmuxNavigateLeft<cr>", desc = "Tmux Navigate Left" },
     ["C-j"] = { "<cmd>TmuxNavigateDown<cr>", desc = "Tmux Navigate Down" },
     ["C-k"] = { "<cmd>TmuxNavigateUp<cr>", desc = "Tmux Navigate Up" },
     ["C-l"] = { "<cmd>TmuxNavigateRight<cr>", desc = "Tmux Navigate Right" },
+
     --- Tab
     ["<leader>Tn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>Tc"] = { "<cmd>tabclose<cr>", desc = "Close tab" },
@@ -19,10 +23,12 @@ return {
     ["<leader>s"] = { name = " Surround" },
     ["<leader>lv"] = { "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" },
     ["<leader>fT"] = { "<cmd>Find TODO's<cr>", desc = "Open TODOs in Telescope" },
+
     -- Text Case
     ["ga."] = { "<cmd>TextCaseOpenTelescope<CR>", desc = "TextCase Telescope" },
     ["gaS"] = { function() require("textcase").lsp_rename "to_snake_case" end, desc = "LSP rename to_snake_case" },
     ["gas"] = { function() require("textcase").current_word "to_snake_case" end, desc = "Convert to_snake_case" },
+
     -- Trouble
     ["<leader>x"] = { name = " Trouble" },
     ["<leader>xw"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Trouble Workspace Toggle" },
@@ -30,6 +36,7 @@ return {
     ["<leader>xq"] = { "<cmd>TroubleToggle quickfix<cr>", desc = "Trouble QuickFix Toggle" },
     ["<leader>U"] = { "<cmd>Telescope undo<cr>", desc = "Undo Tree" },
     ["<leader>lT"] = { "<cmd>TestNearest<cr>", desc = "Test Nearest" },
+
     -- Cargo commands
     ["<leader>lg"] = { name = " Cargo" },
     ["<leader>lgf"] = {
@@ -38,10 +45,12 @@ return {
     },
     ["<leader>lgt"] = { "<cmd>terminal cargo test<cr>", desc = "Cargo Test" },
     ["<leader>lgT"] = { "<cmd>terminal cargo test --workspace<cr>", desc = "Cargo Test Workspace" },
+
     -- Python commands
     ["<leader>lp"] = { name = " Python" },
     ["<leader>lpr"] = { "<cmd>terminal python3 %<cr>", desc = "Run Python File" },
     ["<leader>lpt"] = { "<cmd>terminal echo $(pwd)<cr>", desc = "test" },
+
     -- Buffer
     ["<leader>b"] = { name = "Buffers" },
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
@@ -54,6 +63,7 @@ return {
       desc = "Pick to close",
     },
     ["<leader>bS"] = { ":wa!<cr>", desc = "Save All Buffers" },
+
     -- Aerial
     ["[S"] = {
       function() require("aerial").prev_up(vim.v.count > 0 and vim.v.count or 1) end,

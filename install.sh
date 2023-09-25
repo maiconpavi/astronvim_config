@@ -1,4 +1,6 @@
 
+GO_VERSION="1.21.0"
+
 ishell() {
   sudo apt install build-essential libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev -y
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh  -s -- -y
@@ -21,7 +23,15 @@ invim() {
 }
 
 invimdep() {
-  sudo apt-get install python3 -y
+  sudo apt-get install python3 nodejs npm wget -y
+  npm install -g typescript-language-server typescript graphql-language-service-cli
+
+  # Go
+  rm -rf /usr/local/go 2> /dev/null
+  wget https://go.dev/dl/go$GO_VERSION.linux-amd64.tar.gz
+  sudo tar -C /usr/local -xzf go$GO_VERSION.linux-amd64.tar.gz
+  rm -f go$GO_VERSION.linux-amd64.tar.gz
+
   # Venv, fd, tmux
   sudo apt-get install -y python3.10-venv fd-find 
   ln -s $(which fdfind) ~/.local/bin/fd || true
