@@ -30,7 +30,7 @@ return {
     ["gas"] = { function() require("textcase").current_word "to_snake_case" end, desc = "Convert to_snake_case" },
 
     -- Trouble
-    ["<leader>x"] = { name = " Trouble" },
+    ["<leader>x"] = { name = " Trouble" },
     ["<leader>xw"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Trouble Workspace Toggle" },
     ["<leader>xd"] = { "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Trouble Document Toggle" },
     ["<leader>xq"] = { "<cmd>TroubleToggle quickfix<cr>", desc = "Trouble QuickFix Toggle" },
