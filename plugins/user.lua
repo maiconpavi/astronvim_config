@@ -5,7 +5,7 @@ return {
     "rebelot/heirline.nvim",
     opts = function(_, opts)
       local status = require "astronvim.utils.status"
-      opts.statusline = { -- statusline
+      opts.statusline = {                                                            -- statusline
         hl = { fg = "fg", bg = "bg" },
         status.component.mode { mode_text = { padding = { left = 1, right = 1 } } }, -- add the mode text
         status.component.git_branch(),
@@ -45,6 +45,17 @@ return {
       "rcarriga/nvim-notify",
     },
   },
+  {
+    "rcarriga/nvim-notify",
+    lazy = false,
+    opts = {
+      render = "compact",
+      stages = "fade",
+      fps = "60",
+      level = 3,
+      timeout = 3,
+    },
+  },
   { "christoomey/vim-tmux-navigator", lazy = false },
   {
     "akinsho/toggleterm.nvim",
@@ -60,7 +71,7 @@ return {
     "rcarriga/nvim-dap-ui",
     config = function(plugin, opts)
       -- run default AstroNvim nvim-dap-ui configuration function
-      require "plugins.configs.nvim-dap-ui"(plugin, opts)
+      require "plugins.configs.nvim-dap-ui" (plugin, opts)
 
       -- disable dap events that are created
       local dap = require "dap"
@@ -280,7 +291,7 @@ return {
       return opts
     end,
   },
-  { "NvChad/nvim-colorizer.lua", enabled = false },
+  { "NvChad/nvim-colorizer.lua",      enabled = false },
   {
     "uga-rosa/ccc.nvim",
     version = "*",
@@ -387,7 +398,8 @@ return {
           ["rust-analyzer"] = {
             cargo = {
               extraEnv = {
-                RUSTFLAGS = "-Wclippy::pedantic -Wclippy::nursery -Wclippy::unwrap_used -Aclippy::module_name_repetitions",
+                RUSTFLAGS =
+                "-Wclippy::pedantic -Wclippy::nursery -Wclippy::unwrap_used -Aclippy::module_name_repetitions",
               },
             },
             checkOnSave = true,
