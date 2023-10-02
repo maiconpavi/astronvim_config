@@ -26,6 +26,7 @@ return {
       },
       ensure_installed = {
         "prettier",
+        "eslint-lsp",
         "stylua",
         "rustfmt",
         "isort",
