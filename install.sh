@@ -24,7 +24,7 @@ invim() {
 
 invimdep() {
   sudo apt-get install python3 nodejs npm wget -y
-  npm install -g typescript-language-server typescript graphql-language-service-cli
+  npm install -g typescript-language-server typescript graphql-language-service-cli eslint
 
   # Go
   rm -rf /usr/local/go 2> /dev/null
