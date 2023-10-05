@@ -7,6 +7,7 @@ return {
   { import = "astrocommunity.pack.full-dadbod" },
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.editing-support.vim-move" },
+  { import = "astrocommunity.motion.flash-nvim" },
 
   -- color
   -- { import = "astrocommunity.color.twilight-nvim" },
