@@ -204,19 +204,21 @@ return {
           git_worktrees = vim.g.git_worktrees,
           prompt_prefix = string.format("%s ", get_icon "Search"),
           selection_caret = string.format("%s ", get_icon "Selected"),
-          path_display = { "truncate" },
+          path_display = { "smart" },
           sorting_strategy = "ascending",
+          layout_strategy = "vertical",
           layout_config = {
+            anchor = "N",
             horizontal = {
               prompt_position = "top",
-              preview_width = 0.55,
             },
             vertical = {
               mirror = false,
             },
             width = 0.87,
-            height = 0.80,
-            preview_cutoff = 120,
+            height = 0.90,
+            mirror = false,
+            preview_height = 0.6,
           },
 
           mappings = {
