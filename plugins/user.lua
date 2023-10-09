@@ -2,6 +2,11 @@ local utils = require "user.utils"
 
 return {
   {
+    "aznhe21/actions-preview.nvim",
+    event = { "User AstroFile" },
+    config = function() vim.keymap.set({ "v", "n" }, "gf", require("actions-preview").code_actions) end,
+  },
+  {
     "folke/flash.nvim",
     event = "VeryLazy",
     vscode = true,
@@ -214,11 +219,11 @@ return {
             },
             vertical = {
               mirror = false,
+              preview_height = 0.6,
             },
             width = 0.87,
             height = 0.90,
             mirror = false,
-            preview_height = 0.6,
           },
 
           mappings = {
