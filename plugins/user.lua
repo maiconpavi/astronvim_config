@@ -4,7 +4,7 @@ return {
   {
     "aznhe21/actions-preview.nvim",
     event = { "User AstroFile" },
-    config = function() vim.keymap.set({ "v", "n" }, "gf", require("actions-preview").code_actions) end,
+    config = function() vim.keymap.set({ "v", "n" }, "<leader>lA", require("actions-preview").code_actions) end,
   },
   {
     "folke/flash.nvim",
