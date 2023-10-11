@@ -39,6 +39,11 @@ return {
         ".gitignore",
         ".env",
       }
+      opts.filesystem.follow_current_file = {
+        enable = true,
+        leave_dirs_open = true,
+      }
+      opts.group_empty_dirs = false
 
       return opts
     end,
