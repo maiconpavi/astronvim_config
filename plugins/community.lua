@@ -6,7 +6,6 @@ return {
   { import = "astrocommunity.pack.typescript-all-in-one" },
   { import = "astrocommunity.pack.full-dadbod" },
   { import = "astrocommunity.pack.toml" },
-  { import = "astrocommunity.editing-support.vim-move" },
 
   -- color
   -- { import = "astrocommunity.color.twilight-nvim" },

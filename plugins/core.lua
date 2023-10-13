@@ -40,9 +40,10 @@ return {
         ".env",
       }
       opts.filesystem.follow_current_file = {
-        enable = true,
+        enable = false,
         leave_dirs_open = true,
       }
+      opts.filesystem.use_libuv_file_watcher = true
       opts.group_empty_dirs = false
 
       return opts
