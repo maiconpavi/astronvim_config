@@ -6,7 +6,13 @@ return {
     dependencies = {
       "smoka7/hydra.nvim",
     },
-    opts = {},
+    opts = {
+      generate_hints = {
+        normal = true,
+        insert = true,
+        extend = true,
+      },
+    },
     cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
     keys = {
       {
