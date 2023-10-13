@@ -12,8 +12,8 @@ return {
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
-    move_key_modifier = "C",
-    move_key_modifier_visualmode = "C",
+    move_key_modifier = "A",
+    move_key_modifier_visualmode = "A",
     autoformat_enabled = true,       -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
     cmp_enabled = true,              -- enable completion at start
     autopairs_enabled = true,        -- enable autopairs at start
