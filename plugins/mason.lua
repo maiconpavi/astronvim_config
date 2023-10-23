@@ -25,6 +25,7 @@ return {
         taplo = function() end,
       },
       ensure_installed = {
+        "sql-formatter",
         "prettier",
         "eslint-lsp",
         "stylua",

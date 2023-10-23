@@ -105,7 +105,7 @@ return {
     "rcarriga/nvim-dap-ui",
     config = function(plugin, opts)
       -- run default AstroNvim nvim-dap-ui configuration function
-      require "plugins.configs.nvim-dap-ui" (plugin, opts)
+      require "plugins.configs.nvim-dap-ui"(plugin, opts)
 
       -- disable dap events that are created
       local dap = require "dap"
@@ -163,8 +163,7 @@ return {
           ["rust-analyzer"] = {
             cargo = {
               extraEnv = {
-                RUSTFLAGS =
-                "-Wclippy::pedantic -Wclippy::nursery -Wclippy::unwrap_used -Aclippy::module_name_repetitions",
+                RUSTFLAGS = "-Wclippy::pedantic -Wclippy::nursery -Wclippy::unwrap_used -Aclippy::module_name_repetitions",
               },
             },
             checkOnSave = true,
