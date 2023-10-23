@@ -2,7 +2,19 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      ensure_installed = { "lua", "sql", "yaml", "json", "go", "python", "toml", "rust", "prisma", "graphql" },
+      ensure_installed = {
+        "lua",
+        "sql",
+        "yaml",
+        "json",
+        "go",
+        "python",
+        "toml",
+        "rust",
+        "prisma",
+        "graphql",
+        "dockerfile",
+      },
       auto_install = true,
       highlight = {
         enable = true,

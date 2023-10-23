@@ -14,6 +14,8 @@ return {
         "gopls",
         "prismals",
         "graphql",
+        "docker_compose_language_service",
+        "dockerls",
       },
     },
   },
@@ -39,9 +41,11 @@ return {
         "iferr",
         "impl",
         "goimports",
+        "hadolint",
       },
     },
   },
+  -- use mason-nvim-dap to configure DAP (Debug Adapter Protocol) installation
   {
     "jay-babu/mason-nvim-dap.nvim",
     opts = {

@@ -3,6 +3,7 @@ GO_VERSION="1.21.0"
 
 ishell() {
   sudo apt install build-essential libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev -y
+  env NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh  -s -- -y
   source "$HOME/.cargo/env"
   cargo install --locked --features clipboard broot
@@ -23,6 +24,7 @@ invim() {
 }
 
 invimdep() {
+  brew install hadolint
   sudo apt-get install aptitude -y
   sudo aptitude install -y nodejs
   sudo aptitude install -y npm
