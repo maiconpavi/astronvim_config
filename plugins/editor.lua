@@ -69,6 +69,10 @@ return {
       require("cutlass").setup {
         override_del = true,
         cut_key = "x",
+        excludes = {
+          "ns",
+          "nS",
+        },
       }
     end,
   },
