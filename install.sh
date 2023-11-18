@@ -29,7 +29,7 @@ invimdep() {
   sudo aptitude install -y nodejs
   sudo aptitude install -y npm
   sudo apt-get install python3 wget -y
-  sudo npm install -g typescript-language-server typescript graphql-language-service-cli eslint sql-formatter
+  sudo npm install -g typescript-language-server typescript graphql-language-service-cli eslint sql-formatter dockerfile-language-server-nodejs @microsoft/compose-language-service
 
   # Go
   rm -rf /usr/local/go 2> /dev/null
@@ -59,6 +59,6 @@ invimdep() {
   ~/.fzf/install --all
 
   # python
-  pip3 install -U isort black virtualenv pyright ruff ruff_lsp debugpy cfn-lint yamllint 
+  pip3 install -U isort black virtualenv pyright ruff ruff_lsp debugpy cfn-lint yamllint clang-format
 }
 

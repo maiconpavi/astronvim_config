@@ -16,6 +16,8 @@ return {
         "graphql",
         "docker_compose_language_service",
         "dockerls",
+        "jdtls",
+        "lemminx",
       },
     },
   },
@@ -42,6 +44,7 @@ return {
         "impl",
         "goimports",
         "hadolint",
+        "clang_format",
       },
     },
   },
@@ -49,7 +52,7 @@ return {
   {
     "jay-babu/mason-nvim-dap.nvim",
     opts = {
-      ensure_installed = { "python", "delve" },
+      ensure_installed = { "python", "delve", "javadbg", "javatest" },
     },
   },
 }

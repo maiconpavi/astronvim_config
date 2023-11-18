@@ -14,6 +14,8 @@ return {
         "prisma",
         "graphql",
         "dockerfile",
+        "java",
+        "html",
       },
       auto_install = true,
       highlight = {

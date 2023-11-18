@@ -3,7 +3,7 @@ return {
     "rebelot/heirline.nvim",
     opts = function(_, opts)
       local status = require "astronvim.utils.status"
-      opts.statusline = {                                                            -- statusline
+      opts.statusline = {
         hl = { fg = "fg", bg = "bg" },
         status.component.mode { mode_text = { padding = { left = 1, right = 1 } } }, -- add the mode text
         status.component.git_diff(),
@@ -137,7 +137,7 @@ return {
       require("telescope").load_extension "undo"
     end,
   },
-  { "NvChad/nvim-colorizer.lua",      enabled = false },
+  { "NvChad/nvim-colorizer.lua", enabled = false },
   {
     "uga-rosa/ccc.nvim",
     version = "*",

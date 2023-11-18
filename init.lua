@@ -94,6 +94,10 @@ return {
   lsp = {
     -- customize lsp formatting options
     formatting = {
+      filter = function(client)
+        if vim.bo.filetype == "java" then return client.name == "null-ls" end
+        return true
+      end,
       -- control auto formatting on save
       format_on_save = {
         enabled = true, -- enable or disable format on save globally
