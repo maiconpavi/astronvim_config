@@ -133,6 +133,13 @@ return {
     -- augroups/autocommands and custom filetypes also this just pure lua so
     -- anything that doesn't fit in the normal config locations above can go here
     polish = function()
+      vim.api.nvim_create_autocmd("Filetype", {
+        pattern = "java", -- autocmd to start jdtls
+        callback = function()
+          vim.opt_local.shiftwidth = 2
+          vim.opt_local.tabstop = 2
+        end,
+      })
       --   extension = {
       --     foo = "fooscript",
       --

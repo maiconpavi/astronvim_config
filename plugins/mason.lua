@@ -52,7 +52,7 @@ return {
   {
     "jay-babu/mason-nvim-dap.nvim",
     opts = {
-      ensure_installed = { "python", "delve", "javadbg", "javatest" },
+      ensure_installed = { "python", "delve" }, -- "javadbg", "javatest"
     },
   },
 }
