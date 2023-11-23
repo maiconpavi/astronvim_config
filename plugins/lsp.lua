@@ -1,4 +1,4 @@
-local utils = require "user.utils"
+local utils = require "astronvim.utils"
 
 return {
   {
@@ -150,7 +150,7 @@ return {
   {
     "simrat39/rust-tools.nvim",
     ft = { "rust" },
-    init = function() utils.list_insert_unique(astronvim.lsp.skip_setup, "rust_analyzer") end,
+    init = function() astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "rust_analyzer") end,
     config = function()
       local rt = require "rust-tools"
       local package_path = require("mason-registry").get_package("codelldb"):get_install_path()
