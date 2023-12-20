@@ -8,9 +8,11 @@ ishell() {
   source "$HOME/.cargo/env"
   cargo install --locked --features clipboard broot
   bash <(curl https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh)
-  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
   sudo apt install zsh
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+
+  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
   curl -sS https://starship.rs/install.sh | sh
 }
 
@@ -25,9 +27,7 @@ invim() {
 
 invimdep() {
   brew install hadolint
-  sudo apt-get install aptitude -y
-  sudo aptitude install -y nodejs
-  sudo aptitude install -y npm
+  sudo apt-get install aptitude python3.11 python3-pip -y
   sudo apt-get install python3 wget -y
   sudo npm install -g typescript-language-server typescript graphql-language-service-cli eslint sql-formatter dockerfile-language-server-nodejs @microsoft/compose-language-service
 
@@ -38,7 +38,7 @@ invimdep() {
   rm -f go$GO_VERSION.linux-amd64.tar.gz
 
   # Venv, fd, tmux
-  sudo apt-get install -y python3.10-venv fd-find 
+  sudo apt-get install -y python3.11-venv fd-find 
   ln -s $(which fdfind) ~/.local/bin/fd || true
 
   # rust

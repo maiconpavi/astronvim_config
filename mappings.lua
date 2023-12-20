@@ -54,6 +54,7 @@ return {
     -- Buffer
     ["<leader>b"] = { name = "Buffers" },
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
+    ["<leader>bw"] = { "<cmd>ToggleWrapMode<cr>", desc = "Toggle Wrap Mode" },
     ["<leader>bD"] = {
       function()
         require("astronvim.utils.status").heirline.buffer_picker(
