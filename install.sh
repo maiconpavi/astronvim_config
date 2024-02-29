@@ -3,6 +3,7 @@ GO_VERSION="1.21.0"
 
 ishell() {
   sudo apt install build-essential libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev -y
+  curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
   env NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh  -s -- -y
   source "$HOME/.cargo/env"

@@ -47,7 +47,7 @@ return {
     opts = {
       render = "compact",
       stages = "fade",
-      fps = "60",
+      fps = "144",
       level = 3,
       timeout = 3,
     },

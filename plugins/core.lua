@@ -38,6 +38,7 @@ return {
         ".gitignored",
         ".gitignore",
         ".env",
+        ".envrc",
       }
       opts.filesystem.follow_current_file = {
         enable = false,
