@@ -84,20 +84,4 @@ return {
       require("telescope").load_extension "textcase"
     end,
   },
-  {
-    "andrewferrier/wrapping.nvim",
-    event = "BufRead",
-    config = function()
-      local wrapping = require "wrapping"
-      wrapping.setup {
-        create_keymaps = false,
-        auto_set_mode_filetype_allowlist = {},
-        auto_set_mode_filetype_denylist = { "foobar" },
-      }
-      vim.api.nvim_create_autocmd("BufWinEnter", {
-        group = vim.api.nvim_create_augroup("wrapping", {}),
-        callback = function() wrapping.soft_wrap_mode() end,
-      })
-    end,
-  },
 }

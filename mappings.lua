@@ -4,7 +4,17 @@
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
 return {
+  i = {
+    ["<Up>"] = { "<Nop>", desc = "Disable Up" },
+    ["<Down>"] = { "<Nop>", desc = "Disable Down" },
+    ["<Left>"] = { "<Nop>", desc = "Disable Left" },
+    ["<Right>"] = { "<Nop>", desc = "Disable Right" },
+  },
   n = {
+    ["<Up>"] = { "<Nop>", desc = "Disable Up" },
+    ["<Down>"] = { "<Nop>", desc = "Disable Down" },
+    ["<Left>"] = { "<Nop>", desc = "Disable Left" },
+    ["<Right>"] = { "<Nop>", desc = "Disable Right" },
     -- UI
     ["<leader>uD"] = { "<cmd>DBUIToggle<cr>", desc = "Toggle DB UI" },
 
@@ -76,10 +86,15 @@ return {
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
+    ["<C-n>"] = { "<C-\\><C-n>", desc = "Exit Terminal Mode" },
   },
   v = {
     -- Text Case
     ["ga."] = { "<cmd>TextCaseOpenTelescope<CR>", desc = "TextCase Telescope" },
     ["gas"] = { function() require("textcase").current_word "to_snake_case" end, desc = "Convert to_snake_case" },
+    ["<Up>"] = { "<Nop>", desc = "Disable Up" },
+    ["<Down>"] = { "<Nop>", desc = "Disable Down" },
+    ["<Left>"] = { "<Nop>", desc = "Disable Left" },
+    ["<Right>"] = { "<Nop>", desc = "Disable Right" },
   },
 }
