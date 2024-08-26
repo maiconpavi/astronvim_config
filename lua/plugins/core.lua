@@ -43,10 +43,9 @@ return {
         leave_dirs_open = true,
       }
       opts.filesystem.use_libuv_file_watcher = true
-      opts.filesystem.group_empty_dirs = true
+      opts.filesystem.group_empty_dirs = false
 
       return opts
     end,
   },
-
 }

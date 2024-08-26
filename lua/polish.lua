@@ -14,6 +14,20 @@ vim.filetype.add {
     ["~/%.config/foo/.*"] = "fooscript",
   },
 }
+
+vim.filetype.add {
+  extension = {
+    gotmpl = "gotmpl",
+  },
+  pattern = {
+    [".*/templates/.*%.tpl"] = "helm",
+    [".*/templates/.*%.ya?ml"] = "helm",
+    [".*/values/.*%.ya?ml"] = "helm",
+    [".*%.ya?ml.gotmpl"] = "helm",
+    ["helmfile.*%.ya?ml"] = "helm",
+  },
+}
+
 vim.api.nvim_create_autocmd("Filetype", {
   pattern = "java", -- autocmd to start jdtls
   callback = function()
