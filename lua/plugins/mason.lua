@@ -28,6 +28,13 @@ return {
     opts = {
       handlers = {
         taplo = function() end,
+        sql_formatter = function()
+          require("null-ls").register {
+            require("null-ls").builtins.formatting.sql_formatter.with {
+              extra_args = { "-c", os.getenv "HOME" .. "/.config/sql_formatter/sql_formatter.json" },
+            },
+          }
+        end,
       },
       ensure_installed = {
         "sql-formatter",
